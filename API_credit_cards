@@ -1,0 +1,19 @@
+pip install requests
+import requests
+import json
+
+# API Credit cards
+url = 'https://fakerapi.it/api/v1/credit_cards?_quantity=10'
+
+# Realizar la solicitud HTTP GET a la API
+response = requests.get(url)
+
+# Verificar si la solicitud fue exitosa (código de estado 200)
+if response.status_code == 200:
+    # Convertir la respuesta JSON a un diccionario de Python
+    data = response.json()
+    # Imprimir los datos obtenidos
+    print(json.dumps(data, indent=4))
+else:
+    # Si la solicitud no fue exitosa, imprimir el código de estado
+    print('Error:', response.status_code)
